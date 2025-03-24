@@ -1,0 +1,73 @@
+# Flujo de la Aplicación "Calculadora de Gastos Personales" 
+
+## Descripción General
+La aplicación "Calculadora de Gastos Personales" permite a los usuarios agregar gastos, visualizarlos en una lista y calcular el total acumulado. Está desarrollada utilizando HTML, CSS y JavaScript. A continuación, se explica el flujo de la aplicación paso a paso.
+
+## Flujo de la Aplicación
+
+1. 🔗Carga de la Interfaz HTML
+   - El archivo `calculator.html` define la estructura básica de la página:
+     - Un título principal: "Calculadora de Gastos Personales".
+     - Dos campos de entrada (`input`) para la descripción del gasto y el monto.
+     - Dos botones: "Agregar Gasto" y "Calcular Total".
+     - Un contenedor para mostrar los gastos agregados.
+     - Un contenedor que mostrará el total calculado y un mensaje de error si hay algún problema.
+
+2. 🌤Estilizado Futurista con CSS
+   - El archivo `calculator.css` agrega un diseño moderno con colores oscuros y un fondo animado:
+     - Estilo de `body` centrado con fondo futurista.
+     - La clase `.container` aplica bordes redondeados, sombra y una animación `pulse` para darle dinamismo.
+     - Botones con efectos `hover` y transiciones suaves.
+
+3. 🤖Inicialización del DOM con JavaScript
+   - En el archivo `calculator.js`, se seleccionan elementos HTML mediante `document.getElementById`, como los inputs y botones:
+     ```javascript
+     const descripcionInput = document.getElementById("descripcion");
+     const montoInput = document.getElementById("monto");
+     const btnAgregar = document.getElementById("btnAgregar");
+     const btnCalcular = document.getElementById("btnCalcular");
+     ```
+
+4. ➕Agregar Gastos a la Lista
+   - Cuando el usuario hace clic en el botón "Agregar Gasto":
+     1. Se recupera el valor de los inputs `descripcion` y `monto`.
+     2. Se verifica si la descripción está vacía o si el monto no es un número positivo. Si hay error, se muestra un mensaje.
+     3. Si los datos son válidos, se crea un objeto `gasto` con la descripción y el monto.
+     4. El gasto se añade a un arreglo `gastos` y se limpia el formulario.
+
+5. 🕊Mostrar la Lista de Gastos
+   - La función `mostrarGastos` recorre el arreglo `gastos` y genera un elemento `div` para cada gasto con esta estructura:
+     ```html
+     <div class="gasto-item">
+         <span>Descripción - S/ Monto</span>
+         <button>Eliminar</button>
+     </div>
+     ```
+   - Cada gasto mostrado también tiene un botón "Eliminar" que llama a la función `eliminarGasto`.
+
+6. ❌Eliminar un Gasto
+   - La función `eliminarGasto` elimina el gasto correspondiente del arreglo `gastos` según su índice y actualiza la lista mostrada.
+
+7. 💳 Cálculo del Total de Gastos
+   - Cuando el usuario hace clic en "Calcular Total":
+     - La función `calcularTotal` utiliza `reduce` para sumar todos los montos del arreglo `gastos` y mostrar el total en pantalla:
+       ```javascript
+       totalGastos = gastos.reduce((total, gasto) => total + gasto.monto, 0);
+       totalGastosDiv.textContent = `Total de Gastos: S/ ${totalGastos.toFixed(2)}`;
+       ```
+
+8. 🚀Interactividad y Dinamismo
+   - Los elementos del DOM cambian en tiempo real gracias a la manipulación dinámica con JavaScript.
+   - La aplicación es fluida y responsiva, lo que mejora la experiencia del usuario.
+
+Conceptos Utilizados
+- **Manipulación del DOM**: Selección de elementos, actualización dinámica de contenidos.
+- **Eventos en JavaScript**: Uso de `addEventListener` para gestionar clics de botones.
+- **Arreglos y Métodos de Arreglo**: Uso de `push`, `forEach`, y `reduce`.
+- **Validación de Formulario**: Verificación de datos ingresados por el usuario.
+- **CSS Avanzado**: Animaciones `keyframes`, sombras (`box-shadow`) y transiciones.
+
+Resultado Final
+Con esta estructura, la aplicación "Calculadora de Gastos Personales" permite al usuario administrar sus gastos de manera fácil y visualmente atractiva. ✨ 
+
+🎉

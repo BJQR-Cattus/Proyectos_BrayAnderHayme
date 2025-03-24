@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Gastos Personales</title>
+    <link rel="stylesheet" href="calculator.css">
+</head>
+<body>
+
+<div class="matrix-bg"></div>
+<div class="container">
+    <h1>Calculadora de Gastos Personales</h1>
+
+    <input type="text" id="descripcion" placeholder="Descripción del gasto" />
+    <input type="number" id="monto" placeholder="Monto en soles" />
+    
+    <button id="btnAgregar">Agregar Gasto</button>
+    <button id="btnCalcular">Calcular Total</button>
+
+    <div class="gastos-lista" id="gastosLista"></div>
+
+    <div class="total" id="totalGastos"></div>
+
+    <div class="error-message" id="error"></div>
+</div>
+
+<script src="calculator.js"></script>
+</body>
+</html>
